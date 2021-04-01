@@ -1,0 +1,5 @@
+---
+- name: Create Installs directory
+  win_file:
+    path: C:\Installs
+    state: directory

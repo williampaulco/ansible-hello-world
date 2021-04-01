@@ -1,0 +1,7 @@
+#!/usr/bin/env ansible-playbook
+---
+
+- name: create install directory
+  hosts: winhost
+  roles:
+    - role: role_smoketest
