@@ -31,7 +31,7 @@ vagrant ssh controller
 ```
 5. From this box, you can run the ansible scripts.  They will create a directory in the other VM, winhost.  While this is a very simple ansible script, it provides a starting point for learning ansible.  You can run the ansible scripts using the following command.
 ```
-ansible-playbook /vagrant/yml/playbooks/main.yml -i inventory/hosts.yml
+ansible-playbook /vagrant/yml/playbooks/main.yml -i /vagrant/yml/inventory/hosts.yml
 ```
 # Notes
 * On the VMs, the /vagrant directory is shared with your host machine.  Thus, you can modify the ansible scripts from your host machine and then rerun them using the command above.  This is a great way to experiment with and learn ansible.
