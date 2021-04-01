@@ -35,5 +35,6 @@ ansible-playbook /vagrant/yml/playbooks/main.yml -i /vagrant/yml/inventory/hosts
 ```
 # Notes
 * On the VMs, the /vagrant directory is shared with your host machine.  Thus, you can modify the ansible scripts from your host machine and then rerun them using the command above.  This is a great way to experiment with and learn ansible.
+* You can Remote Desktop to the Windows VM using url: 192.168.33.10, username: WINHOST\administrator, and password: vagrant.
 # Useful Links
 * [Ansible Windows Modules](https://docs.ansible.com/ansible/latest/collections/ansible/windows/)

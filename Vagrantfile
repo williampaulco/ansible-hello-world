@@ -24,11 +24,17 @@ Vagrant.configure("2") do |config|
     node.vm.hostname = 'winhost'
     node.vm.network 'private_network', ip: '192.168.33.10'
     node.vm.provision "shell", inline: <<-SHELL
+      # These commands allow ansible to work over winrm
       Set-Item -Path WSMan:\\localhost\\Service\\AllowUnencrypted -Value $true
       Set-Item -Path WSMan:\\localhost\\Service\\Auth\\Basic -Value $true
       Set-Item -Path WSMan:\\localhost\\Client\\AllowUnencrypted -Value $true
       Set-Item -Path WSMan:\\localhost\\Client\\Auth\\Basic -Value $true
+      # This command allows you to RDP to the server.
+      Set-ItemProperty -Path "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\WinStations\\RDP-Tcp" -Name "UserAuthentication" -Value 0
     SHELL
+    node.vm.provider "virtualbox" do |v|
+      v.gui = false
+    end
   end
 
 end
