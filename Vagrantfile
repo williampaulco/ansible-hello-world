@@ -17,6 +17,7 @@ Vagrant.configure("2") do |config|
       apt-add-repository --yes --update ppa:ansible/ansible
       apt install ansible -y
     SHELL
+	node.vm.boot_timeout = 600
   end
 
   config.vm.define 'winhost' do |node|
@@ -35,6 +36,7 @@ Vagrant.configure("2") do |config|
     node.vm.provider "virtualbox" do |v|
       v.gui = false
     end
+	node.vm.boot_timeout = 600
   end
 
 end
